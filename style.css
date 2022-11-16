@@ -1,0 +1,21 @@
+.w-450
+{
+      width: 450px;
+}
+.vh 
+{
+      min-height: 100vh;
+}
+.image
+{
+       width: 500px;
+}
+
+.card-title
+{
+left: 20px;
+}
+.nav
+{
+      justify-content: space-between;
+} 
