@@ -1,6 +1,8 @@
 <?php
 include 'config.php';
 
+$id = $_GET['id'];
+$categorie =$_GET['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +25,9 @@ include 'config.php';
  </div>
 
 
+
+ <span id = "tryid"> </span>
+<div class="container">
  <table class="table caption-top  position-absolute top-25 end-0">
   <thead>
     <tr>
@@ -30,33 +35,33 @@ include 'config.php';
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
+           </tr>
+       </thead>
+      <?php 
+      $sql ="SELECT * FROM `instrument` WHERE id_categorie = $id";
+      $result = mysqli_query($conn,$sql);
+      while($row = mysqli_fetch_assoc($result))
+      {
+            
+      echo" <tbody>
+        <tr>
+             <th scope='row'>1</th>
+            <td>{$row['nom_instrument']}</td>
+            <td>{$row['nbr_istock']}</td>
+            <td>$categorie</td>
+    
+            </tr>
+      </tbody>";
+
+
+      } 
+ ?>
  </table> 
 </div>  
 </body>
 </html>
+
+<script type="text/javascript" src="managecategorie.js"></script>
 
 
 
