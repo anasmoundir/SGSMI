@@ -19,16 +19,17 @@
             }
             else
             {
-                  $sql= "SELECT * FROM `admin` WHERE gmail = '$email' AND password = '$password'";
+                  
+                  $sql= "SELECT * FROM `admin` WHERE gmail = '$email'";
                   $result = mysqli_query($conn,$sql);
                   $row = mysqli_fetch_assoc($result);
                   $variable = $row['nom_utilisateur']; 
-                  if(mysqli_num_rows($result) > 0)
-                  {
+                  if((password_verify($password, $row['password']) == true )&& (mysqli_num_rows($result) > 0))
+            {
                    $_SESSION['nom_utilisateur'] = $variable;
                    header("location: categorie.php");
-                    
-                  }else 
+            }
+                  else 
                   {
 
                         $var = "enter the valid email or password ".$variable;

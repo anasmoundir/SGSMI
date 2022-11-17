@@ -24,7 +24,15 @@
        $variable3 = $row['password'];     
       ?>
        <div class="container">
-      <form action="welcome.php" method="post">
+      <form action="pofileupdate.php" method="post">
+      <?php if(isset($_GET['error'])) : ?>
+      <div class="alert alert-danger" role="alert">
+      <?php 
+      echo $_GET['error']; ?>
+       </div>
+      <?php endif?> 
+
+      
       <?php echo "
       <div class='mb-3'>
     <label for='exampleInputEmail1' class='form-label'>User Name</label>
@@ -40,7 +48,7 @@
     <?php echo "
   <div class='mb-3'>
     <label for='exampleInputPassword1' class='form-label'>Password</label>
-    <input type='password' class='form-control' id='exampleInputPassword1'>
+    <input type='password' name = 'password' class='form-control' id='exampleInputPassword1'>
   </div>
   <div class='mb-3 form-check'>
     <input type='checkbox' class='form-check-input' value = '$variable3' id='exampleCheck1'>

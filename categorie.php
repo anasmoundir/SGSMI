@@ -16,52 +16,27 @@ include 'config.php';
       <?php include 'navbar.php';?>
 </div>
 
-
 <div class="container">
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Categorie 1</h5>
-        <img class="w-50" src="./images/girl-842719_640.jpg" alt="">
-        <p class="card-text">Donec nec justo eget felis facilisis fermentum. .</p>
-        <a href="#" data-cat="1" class="btn btn-primary">go to categorie products</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Categorie 2</h5>
-        <img class="w-50" src="./images/girl-842719_640.jpg" alt="">
-        <p class="card-text"> Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-        <a href="#"  data-cat="1" class="btn btn-primary">go to categorie products</a>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="row ">
+<?php 
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Categorie 3</h5>
-        <img class="w-50" src="./images/girl-842719_640.jpg" alt="">
-        <p class="card-text">Donec nec j Aenean dignissim pellentesque felis.</p>
-        <a href="#" data-cat="1" class="btn btn-primary">go to categorie products</a>
+$sql = "SELECT * FROM categorie";
+$result = mysqli_query($conn,$sql);
+while($row = mysqli_fetch_assoc($result))
+{
+     echo" <div class='col-md-3'>
+            <div class='card' >
+            <h5 class='card-title'>{$row['name']}</h5>
+            <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg' alt='Card image cap'>
+                  <div class='card-body'>
+                  <p class='card-text'>{$row['Description']}</p>
+                  <ion-button color='success'>Success</ion-button>
+                  </div>
+            </div>
       </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Categorie 4</h5>
-        <img class="w-50" src="./images/girl-842719_640.jpg" alt="">
-        <p class="card-text">Donec nec justosit amet orci. Aenean dignissim pellentesque felis.</p>
-        <a href="#" data-cat="1" class="btn btn-primary">go to categorie products</a>
-      </div>
-    </div>
-  </div>
+";
+}
+?>
 </div>
 </div>
 </body>
