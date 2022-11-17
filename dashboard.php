@@ -25,16 +25,15 @@ $categorie =$_GET['name'];
  </div>
 
 
-
- <span id = "tryid"> </span>
-<div class="container">
- <table class="table caption-top  position-absolute top-25 end-0">
-  <thead>
+<div class=" container">
+ <table class="table table-bordered">
+  <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">instrument name</th>
+      <th scope="col">QTE</th>
+      <th scope="col">categorie</th>
+      <th scope="col">Action</th>
            </tr>
        </thead>
       <?php 
@@ -44,12 +43,15 @@ $categorie =$_GET['name'];
       {
             
       echo" <tbody>
-        <tr>
+             <tr>
              <th scope='row'>1</th>
             <td>{$row['nom_instrument']}</td>
             <td>{$row['nbr_istock']}</td>
             <td>$categorie</td>
-    
+               <td>    
+               <button class='btn btn-danger'>Danger</button>
+               <button  class='btn btn-warning'>Warning</button>
+               </td>
             </tr>
       </tbody>";
 
@@ -70,16 +72,42 @@ $categorie =$_GET['name'];
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">ADD Products</h1>
+        <h1 class="modal-title fs-5 " id="exampleModalLabel">+ADD Products</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <label for=""></label>
+      <form>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="text-uppercase"">nom instrument </label>
+    <input type="text" class="form-control" id="instrumentname" aria-describedby="emailHelp">
+      <div class="mb-3">
+      <label for="exampleInputPassword1" class="text-uppercase" form-label">nbr stock</label>
+     <input type="text" class="form-control" id="nbrinstock">
       </div>
-      <div class="modal-footer">
+      <select class='form-select' aria-label='Default select example'>
+            <option selected>Open this select menu</option>
+            <?php
+      $request = "SELECT `id_categorie`, `name` FROM `categorie`";
+      $resulta = mysqli_query($conn, $request );
+      while($row1 = mysqli_fetch_assoc($resulta))
+      {echo "<option value='{$row1['id_categorie']}'>{$row1['name']}</option>";
+      } 
+      var_dump($row1);
+      ?>
+       </select>
+
+       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
+
+      
+      </form>
+     
+      </div>
+     
     </div>
   </div>
 </div>
+
+

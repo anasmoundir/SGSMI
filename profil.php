@@ -32,11 +32,11 @@
        </div>
       <?php endif?> 
 
-      
+
       <?php echo "
       <div class='mb-3'>
     <label for='exampleInputEmail1' class='form-label'>User Name</label>
-    <input type='text' class='form-control' id='usernameInputEmail1' value = '$variable1' name ='username'>
+    <input disabled type='text' class='form-control' id='usernameInputEmail1' value = '$variable1' name ='username'>
     <div id='usernamehelp' class='form-text'></div>
   </div>"?>
   <?php echo "
