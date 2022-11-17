@@ -2,7 +2,7 @@
 include 'config.php';
 
 $id = $_GET['id'];
-$categorie =$_GET['name'];
+$categorie = $_GET['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,8 @@ $categorie =$_GET['name'];
  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   + ADD
 </button>
+
+
  </div>
 
 
@@ -76,21 +78,21 @@ $categorie =$_GET['name'];
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form>
+      <form  action = "addinstrument.php" method = "post">
     <div class="mb-3">
-    <label for="exampleInputEmail1" class="text-uppercase"">nom instrument </label>
-    <input type="text" class="form-control" id="instrumentname" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="text-uppercase">nom instrument </label>
+    <input type="text" name ="instruname" class="form-control" id="instrumentname">
       <div class="mb-3">
       <label for="exampleInputPassword1" class="text-uppercase" form-label">nbr stock</label>
-     <input type="text" class="form-control" id="nbrinstock">
+     <input type="number" name= "nbrstock" class="form-control" id="nbrinstock">
       </div>
-      <select class='form-select' aria-label='Default select example'>
+      <select name = 'categorie' class='form-select' aria-label='Default select example'>
             <option selected>Open this select menu</option>
             <?php
       $request = "SELECT `id_categorie`, `name` FROM `categorie`";
       $resulta = mysqli_query($conn, $request );
       while($row1 = mysqli_fetch_assoc($resulta))
-      {echo "<option value='{$row1['id_categorie']}'>{$row1['name']}</option>";
+      {echo "<option  value = '{$row1['id_categorie']}'>{$row1['name']}</option>";
       } 
       var_dump($row1);
       ?>
@@ -100,8 +102,6 @@ $categorie =$_GET['name'];
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
-
-      
       </form>
      
       </div>

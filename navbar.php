@@ -22,11 +22,16 @@ if($_SESSION['nom_utilisateur'] == NULL)
     <a href="" class="text-white display-7 h4 px-5">operation sur produit</a>
     <a href="statistics.php" class="text-white display-7 h4 px-5">stastics</a>
     <a href="profil.php" class="text-white display-7 h4 px-5">profil</a>
-
+   
+    
     <div class="btn-group dropstart position-absolute top-50 end-0 translate-middle-y">
+      
   <img  src = "https://picsum.photos/50" type="image" class="dropdown-toggle  rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item  text-center" href="#"></a>  </a></li>
+    <li><a class="dropdown-item  text-center" href="#"><?php
+      $t=time();
+      echo(date('Y-m-d',$t));;
+      ?>  </a></li>
     <li><a class="dropdown-item" href="#"><?php echo $_SESSION['nom_utilisateur'];  ?></a></li>
     <li><a class="dropdown-item" href="profil.php">personal information</a></li>
     <li><hr class="dropdown-divider"></li>
