@@ -29,9 +29,7 @@ while($row = mysqli_fetch_assoc($result))
             <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg' alt='Card image cap'>
                   <div class='card-body'>
                   <p class='card-text'>{$row['Description']}</p>
-                  <ion-button color='success'>click here </ion-button>
-                  <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}' class ='btn btn-danger'>click</a>
-                  <div name ='id_categorie'>{$row['id_categorie']}</div>
+                  <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}' class ='btn btn-danger'>see the items</a>
                   </div>
             </div>
       </div>

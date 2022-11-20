@@ -1,8 +1,13 @@
 <?php
 include 'config.php';
-
-$id = $_GET['id'];
 $categorie = $_GET['name'];
+var_dump($_POST);
+ $id= $_GET['id'];
+ 
+     
+
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +24,7 @@ $categorie = $_GET['name'];
 </div>
 <div class ="container">
  <div class="d-flex justify-content-end">
- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  + ADD
-</button>
+ 
 
 
  </div>
@@ -46,26 +49,83 @@ $categorie = $_GET['name'];
             
       echo" <tbody>
              <tr>
+             
              <th scope='row'>1</th>
-            <td>{$row['nom_instrument']}</td>
-            <td>{$row['nbr_istock']}</td>
-            <td>$categorie</td>
+            <td  id='{$row['id_instrument']}nameins' data-name= {$row['nom_instrument']} >{$row['nom_instrument']}</td>
+            <td id='{$row['id_instrument']}numins' data-nbr= {$row['nbr_istock']} >{$row['nbr_istock']}</td>
+            <td id='{$row['id_instrument']}cateins' data-categorie= {$row['id_categorie']}  >$categorie</td>
+            <input value = '{$row['id_instrument']}' name = 'id' type ='hidden' >
                <td>    
-               <button class='btn btn-danger'>Danger</button>
-               <button  class='btn btn-warning'>Warning</button>
+               <button type='button' class='btn btn-primary' onclick = 'fill({$row['id_instrument']})' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+  Launch static backdrop modal
+</button>
+
+
+               
                </td>
             </tr>
+          
       </tbody>";
-
-
       } 
+  
  ?>
- </table> 
+ </table>
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  + ADD
+</button>
+
 </div>  
 </body>
 </html>
-
 <script type="text/javascript" src="managecategorie.js"></script>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">manage your products</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form  action = "addinstrument.php" method = "post">
+        <input type=""  id ="hidden-id">
+      <label for="exampleInputPassword1"  class="form-label">nom instrument</label>
+      <input type="text" name ="instruname" id = "a"  class="form-control" id="instrumentname">
+      <label for="exampleInputPassword1" class="text-uppercase" form-label">nbr stock</label>
+    <input type="number" name= "nbrstock" class="form-control" id="nbrinstock">
+    <label for="exampleInputPassword1" class="text-uppercase" form-label">categorie</label>
+    <select name = 'categorie' class='form-select' aria-label='Default select example'>
+            <option selected>categories</option>
+            <?php
+      $request = "SELECT `id_categorie`, `name` FROM `categorie`";
+      $resulta = mysqli_query($conn, $request );
+      while($row1 = mysqli_fetch_assoc($resulta))
+      {echo "<option  value = '{$row1['id_categorie']}'>{$row1['name']}</option>";
+      } 
+      var_dump($row1);
+     
+
+     ?>
+       </select>
+    
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button  class='btn btn-danger' type ='submit' name = 'delete' >delete</button>
+        <button  class='btn btn-warning' type ='submit' name = 'update'>upDate</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 
 
 
@@ -86,6 +146,8 @@ $categorie = $_GET['name'];
       <label for="exampleInputPassword1" class="text-uppercase" form-label">nbr stock</label>
      <input type="number" name= "nbrstock" class="form-control" id="nbrinstock">
       </div>
+
+      <label for="exampleInputPassword1" class="text-uppercase" form-label">categorie</label>
       <select name = 'categorie' class='form-select' aria-label='Default select example'>
             <option selected>Open this select menu</option>
             <?php
@@ -99,6 +161,7 @@ $categorie = $_GET['name'];
        </select>
 
        <div class="modal-footer">
+    
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
@@ -109,5 +172,6 @@ $categorie = $_GET['name'];
     </div>
   </div>
 </div>
+<script src ="script.js"></script>
 
 

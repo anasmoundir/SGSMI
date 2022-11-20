@@ -36,4 +36,15 @@ else
       $msg = "error ". $categorie ;
       header("location: categorie.php?error=$msg");
 }
+
+
+if(isset($_POST['delete']))
+{
+       $id_instr = $_POST['id'];
+       $delete = "DELETE FROM `instrument` WHERE  'id _instrument' = 3";
+      mysqli_query($conn,$delete);
+      
+}
+
+
 ?>

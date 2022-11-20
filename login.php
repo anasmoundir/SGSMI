@@ -24,7 +24,6 @@
       <img src="images/pngwing.png"  width ="90" alt="">
       <h2>welcome to your store admin side</h2>
       </div>
-
        <div class = "card-text h-75 d-flex justify-content-center  align-items-center ">
 
        <form  class = "form-control-lg shadow  p-5 " action = "page2.php" method = "post">
