@@ -13,13 +13,9 @@ if($_SESSION['nom_utilisateur'] == NULL)
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
       <link rel="stylesheet" href="style.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js" integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://use.fontawesome.com/your-embed-code.js"></script>
 </head>
 
 <div class="shadow w-100 mb-5">
-
-
-
   <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid d-flex justify-content-between">
 
@@ -49,8 +45,8 @@ if($_SESSION['nom_utilisateur'] == NULL)
         <div>
 
  
-      <div  class=" ">  
-        <img  src = "https://picsum.photos/50" type="image" class="dropdown-toggle dropstart rounded-circle px-5" data-bs-toggle="dropdown" aria-expanded="false">
+      <div  class="dropstart d-none d-sm-block ">  
+        <img  src = "https://picsum.photos/50" type="image" class=" dropstart dropdown-toggle  rounded-circle px-5" data-bs-toggle="dropdown" aria-expanded="false">
      <ul class="dropdown-menu">
     <li><a class="dropdown-item  text-center" href="#"><?php
       $t=time();

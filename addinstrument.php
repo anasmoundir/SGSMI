@@ -31,19 +31,29 @@ if(empty($instru_name))
       header("location: categorie.php?error=$msg");
 }
 }
-else
-{
-      $msg = "error ". $categorie ;
-      header("location: categorie.php?error=$msg");
-}
+ else
+ {
+       $msg = "error ". $categorie ;
+       header("location: categorie.php?error=$msg");
+ }
 
 
 if(isset($_POST['delete']))
-{
-       $id_instr = $_POST['id'];
-       $delete = "DELETE FROM `instrument` WHERE  'id _instrument' = 3";
+      {
+      $id_instr = $_POST['id-hidden'];
+      $delete = "DELETE FROM `instrument` WHERE `instrument`.`id_instrument` = $id_instr";
       mysqli_query($conn,$delete);
-      
+}
+
+if(isset($_POST['update']))
+{     
+      $id_instr = $_POST['id-hidden'];
+      $name =$_POST['instruname1'];
+      $nbr = $_POST['nbrstock1'];
+      $categorie_id = $_POST['categorie1'];
+      $update = "UPDATE `instrument` SET `nom_instrument` = '$name', `nbr_istock` = '$nbr', `id_categorie` = '$categorie_id ' WHERE `instrument`.`id_instrument` = $id_instr";
+       mysqli_query($conn,$update);
+       header("location: categorie.php?error=$msg");
 }
 
 

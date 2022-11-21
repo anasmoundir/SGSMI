@@ -9,9 +9,9 @@
       <link  rel="stylesheet" type = "text/css"  href = "css/style.css">
       <title>sign up page</title>
 </head>
-<body class="d-flex vh-100  justify-content-center"  >
+<body class="d-flex   justify-content-center"  >
 
-      <img width="100px" class="rounded vh-100 ;"  style="flex: 0 0 55%;" src="images/guitar-756326_1920.jpg" alt="guitar image">
+      <img width="100px" class=" vh-100 d-sm-none d-md-block  ;"  style="flex: 0 0 55%;" src="images/guitar-756326_1920.jpg" alt="guitar image">
 
 
 
@@ -48,7 +48,8 @@
       <input type="text" 
       class="form-control"  
       name = "fullname"  
-      placeholder =" enter your full name  here  "
+      id ="name"
+      placeholder =" enter your full name  here "
       value = "<?php echo (isset($_GET['fullname'])) ? $_GET['fullname'] : "";  ?>">
       </div>
 
@@ -66,13 +67,14 @@
             <input type="text" class="form-control" name = "password"   placeholder =" enter your password here " >
 
       </div>
-
-      <button type="submit" class="btn btn-primary">sign up</button>
+      <button type='submit'  onsubmit="validate(,,)"    class='btn btn-primary'>sign up</button>
       <a href="login.php" class = "link-secondary">login</a>
 
       </form>
       </div>
       </div>
 </div>
+      <script src ="validation.js"></script>
       </body>
+      
       </html>   

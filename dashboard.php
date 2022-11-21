@@ -1,9 +1,8 @@
 <?php
 include 'config.php';
 $categorie = $_GET['name'];
-var_dump($_POST);
  $id= $_GET['id'];
- 
+ $var  = 0;
      
 
   
@@ -46,18 +45,18 @@ var_dump($_POST);
       $result = mysqli_query($conn,$sql);
       while($row = mysqli_fetch_assoc($result))
       {
-            
+        $var++;
       echo" <tbody>
              <tr>
              
-             <th scope='row'>1</th>
-            <td  id='{$row['id_instrument']}nameins' data-name= {$row['nom_instrument']} >{$row['nom_instrument']}</td>
+             <th scope='row'>$var</th>
+            <td  id='{$row['id_instrument']}nameins' data-name= {$row['nom_instrument']}>{$row['nom_instrument']}</td>
             <td id='{$row['id_instrument']}numins' data-nbr= {$row['nbr_istock']} >{$row['nbr_istock']}</td>
-            <td id='{$row['id_instrument']}cateins' data-categorie= {$row['id_categorie']}  >$categorie</td>
+            <td id='{$row['id_instrument']}cateins' data-categorie= {$id}  >$categorie</td>
             <input value = '{$row['id_instrument']}' name = 'id' type ='hidden' >
                <td>    
                <button type='button' class='btn btn-primary' onclick = 'fill({$row['id_instrument']})' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
-  Launch static backdrop modal
+ manage your items
 </button>
 
 
@@ -77,7 +76,6 @@ var_dump($_POST);
 </div>  
 </body>
 </html>
-<script type="text/javascript" src="managecategorie.js"></script>
 
 
 <!-- Button trigger modal -->
@@ -92,24 +90,22 @@ var_dump($_POST);
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form  action = "addinstrument.php" method = "post">
-        <input type=""  id ="hidden-id">
+      <form  action = "addinstrument.php" method = "Post">
+        <input type="hidden" name ='id-hidden' id = "hidden-id">
       <label for="exampleInputPassword1"  class="form-label">nom instrument</label>
-      <input type="text" name ="instruname" id = "a"  class="form-control" id="instrumentname">
-      <label for="exampleInputPassword1" class="text-uppercase" form-label">nbr stock</label>
-    <input type="number" name= "nbrstock" class="form-control" id="nbrinstock">
-    <label for="exampleInputPassword1" class="text-uppercase" form-label">categorie</label>
-    <select name = 'categorie' class='form-select' aria-label='Default select example'>
-            <option selected>categories</option>
+      <input type="text" name ="instruname1" id = "fillname"  class="form-control" id="instrumentname">
+      <label for="exampleInputPassword1" class="text-uppercase form-label">nbr stock</label>
+    <input type="number" name= "nbrstock1" id = 'fillqte'  class="form-control" id="nbrinstock">
+    <label for="exampleInputPassword1" class="text-uppercase form-label">categorie</label>
+    <select  name = 'categorie1' class='form-select' id ='fillcategorie'>
+            <option    selected>categories</option>
             <?php
       $request = "SELECT `id_categorie`, `name` FROM `categorie`";
       $resulta = mysqli_query($conn, $request );
       while($row1 = mysqli_fetch_assoc($resulta))
-      {echo "<option  value = '{$row1['id_categorie']}'>{$row1['name']}</option>";
+      {echo "<option  value='{$row1['id_categorie']}'>{$row1['name']}</option>";
       } 
-      var_dump($row1);
-     
-
+    
      ?>
        </select>
     
@@ -143,11 +139,11 @@ var_dump($_POST);
     <label for="exampleInputEmail1" class="text-uppercase">nom instrument </label>
     <input type="text" name ="instruname" class="form-control" id="instrumentname">
       <div class="mb-3">
-      <label for="exampleInputPassword1" class="text-uppercase" form-label">nbr stock</label>
+      <label for="exampleInputPassword1" class="text-uppercase  form-label">nbr stock</label>
      <input type="number" name= "nbrstock" class="form-control" id="nbrinstock">
       </div>
 
-      <label for="exampleInputPassword1" class="text-uppercase" form-label">categorie</label>
+      <label for="exampleInputPassword1" class="text-uppercase  form-label">categorie</label>
       <select name = 'categorie' class='form-select' aria-label='Default select example'>
             <option selected>Open this select menu</option>
             <?php
@@ -156,7 +152,6 @@ var_dump($_POST);
       while($row1 = mysqli_fetch_assoc($resulta))
       {echo "<option  value = '{$row1['id_categorie']}'>{$row1['name']}</option>";
       } 
-      var_dump($row1);
       ?>
        </select>
 

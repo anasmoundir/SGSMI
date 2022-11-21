@@ -27,7 +27,7 @@
             }
             else
             {
-                  $password = password_hash($password,PASSWORD_ARGON2I);
+                  $password = password_hash($password,PASSWORD_DEFAULT);
                   $sql = "INSERT INTO `admin`(`nom_utilisateur`, `gmail`, `password`) VALUES ( '$fname','$email','$password')";
                   mysqli_query($conn,$sql);
                   header("location: signup.php?success=your account has been created succesfully");
