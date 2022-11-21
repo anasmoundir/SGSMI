@@ -14,35 +14,61 @@ include 'config.php';
 <?php
 include 'navbar.php';
 ?>
-<div class="card-group">
-  <div class="card">
- 
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
+<div class="row ">
+  <div class="col-6 col-md-4">
+      <div class="card">
+          <h5 class="card-header">Admin</h5>
+          <div class="card-body">
+            <h5 class="card-title">Admin User</h5>
+            <?php
+            $count = "SELECT count(id_admin) FROM `admin`";
+            $nbr = mysqli_query($conn,$count);
+            $row = mysqli_fetch_assoc($nbr);
+            $t=time();
+            $date = date("Y-m-d",$t);
+            echo"
+            
+            <p class='card-text'>$date, MORROCO</p>
+            <h2 class='card-text text-success'>total users :  {$row['count(id_admin)']}</h2>"
+            ?>
+          </div>
+        </div>
   </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
+  <div class="col-6 col-md-4">
+      <div class="card">
+          <h5 class="card-header">total product</h5>
+          <div class="card-body">
+            <?php
+              $count2 = "SELECT count(id_instrument) FROM `instrument`";
+              $nbr2 = mysqli_query($conn,$count2);
+              $row2 = mysqli_fetch_assoc($nbr2);
+              echo "
+            <h5 class='card-title'>total products from all categories</h5>
+            <p class='card-text'>$date ,MORROCO</p>
+            <h2 class='card-text text-success'>total products : {$row2['count(id_instrument)']}</h2>
+            ";?>
+          </div>
+        </div>
   </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
+  <div class="col-6 col-md-4">
+      <div class="card">
+          <h5 class="card-header">Operations</h5>
+          <div class="card-body">
+          <a href ='userhistory.php'>click here to see the historique of the operations</a>
+            <?php
+              $count3 = "SELECT count(id_operation) FROM `operation`";
+              $nbr3 = mysqli_query($conn,$count3);
+              $row3 = mysqli_fetch_assoc($nbr3);
+              echo "
+              
+            <p class='card-text'>$date , MORROCO</p>
+            <h3 class='card-text text-success'>NBR operation :  {$row3['count(id_operation)']}</h3>
+            ";
+            ?>
+            </div>
+        </div>
   </div>
+  
 </div>
 </body>
 </html>

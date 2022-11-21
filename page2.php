@@ -24,9 +24,12 @@
                   $result = mysqli_query($conn,$sql);
                   $row = mysqli_fetch_assoc($result);
                   $variable = $row['nom_utilisateur']; 
+                  $variable2 = $row['id_admin'];
                   if((password_verify($password, $row['password']) == true )&& (mysqli_num_rows($result) > 0))
             {
                    $_SESSION['nom_utilisateur'] = $variable;
+
+                   $_SESSION['idadmin'] =  $variable2;
                    header("location: categorie.php");
             }
                   else 

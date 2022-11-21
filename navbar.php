@@ -5,6 +5,7 @@ if($_SESSION['nom_utilisateur'] == NULL)
 {
       header('location: login.php');
 }
+
 ?>
 <head>
       <meta charset="UTF-8">
@@ -30,15 +31,15 @@ if($_SESSION['nom_utilisateur'] == NULL)
       <span class="navbar-toggler-icon"></span>
       </button>
        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav list-unstyled px-5">
         <li class="nav-item">
-        <a href="profil.php" class="text-white display-7 h4 px-5">profil</a>
+        <a href="profil.php" style =" color: black;" class=" h4 px-5">Profil</a>
         </li>
         <li class="nav-item">
-        <a href="categorie.php" class="text-white display-7 h4 px-5">categorie</a>
+        <a href="categorie.php" style =" color: black;" class="h4 px-5">Categorie</a>
         </li>
         <li class="nav-item">
-        <a href="statistics.php" class="text-white display-7 h4 px-5">dashboard</a>
+        <a href="statistics.php" style =" color: black;" class="h4 px-5">Dashboard</a>
         </li>
         </div>
 </div>

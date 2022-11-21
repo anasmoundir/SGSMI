@@ -23,7 +23,7 @@ $sql = "SELECT * FROM categorie";
 $result = mysqli_query($conn,$sql);
 while($row = mysqli_fetch_assoc($result))
 {
-     echo" <div class='col-md-3'>
+     echo" <div class='col-md-6 '>
             <div class='card' >
             <h5 class='card-title'>{$row['name']}</h5>
             <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg' alt='Card image cap'>

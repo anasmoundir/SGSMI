@@ -30,8 +30,8 @@ $categorie = $_GET['name'];
 
 
 <div class=" container">
- <table class="table table-bordered">
-  <thead class="thead-dark">
+ <table class="table table-striped table-bordered">
+  <thead class="bg-dark text-light" >
     <tr>
       <th scope="col">#</th>
       <th scope="col">instrument name</th>
@@ -41,6 +41,7 @@ $categorie = $_GET['name'];
            </tr>
        </thead>
       <?php 
+    
       $sql ="SELECT * FROM `instrument` WHERE id_categorie = $id";
       $result = mysqli_query($conn,$sql);
       while($row = mysqli_fetch_assoc($result))
@@ -58,21 +59,16 @@ $categorie = $_GET['name'];
                <button type='button' class='btn btn-primary' onclick = 'fill({$row['id_instrument']})' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
  manage your items
 </button>
-
-
-               
                </td>
             </tr>
           
       </tbody>";
       } 
-  
  ?>
  </table>
  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   + ADD
 </button>
-
 </div>  
 </body>
 </html>
