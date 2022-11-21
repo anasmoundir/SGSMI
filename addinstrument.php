@@ -39,7 +39,7 @@ if(empty($instru_name))
       $resultat = mysqli_query($conn,$searsh);
       $rowsearsh = mysqli_fetch_assoc($resultat);
       $target = $rowsearsh['id_instrument'];
-      $updattop3 = "INSERT INTO `operation`(`date_operation`, `id_instrument`, `id_admin`) VALUES ('$date','$target','$val')";
+      $updattop3 = "INSERT INTO `operation`(`date_operation`, `id_instrument`, `id_admin`,`type_operation`) VALUES ('$date','$target','$val','Add')";
       mysqli_query($conn,$updattop3);
       header("location: categorie.php?error=$msg");
       
@@ -58,7 +58,7 @@ if(isset($_POST['delete']))
        $delete = "DELETE FROM `instrument` WHERE `instrument`.`id_instrument` = $id_instr";
        mysqli_query($conn,$delete);
       //store operATION
-      $updattop = "INSERT INTO `operation`(`date_operation`, `id_instrument`, `id_admin`) VALUES ('$date',' $id_instr','$val')";
+      $updattop = "INSERT INTO `operation`(`date_operation`, `id_instrument`, `id_admin`,`type_operation`) VALUES ('$date',' $id_instr','$val','delete')";
       mysqli_query($conn,$updattop);
       header("location: categorie.php?error=$msg");     
       }
@@ -73,7 +73,7 @@ if(isset($_POST['update']))
       $update = "UPDATE `instrument` SET `nom_instrument` = '$name', `nbr_istock` = '$nbr', `id_categorie` = '$categorie_id ' WHERE `instrument`.`id_instrument` = $id_instr";
        mysqli_query($conn,$update);
        //store operation
-       $updattop2 = "INSERT INTO `operation`(`date_operation`, `id_instrument`, `id_admin`) VALUES ('$date',' $id_instr','$val')";
+       $updattop2 = "INSERT INTO `operation`(`date_operation`, `id_instrument`, `id_admin`,`type_operation`) VALUES ('$date',' $id_instr','$val','update')";
        mysqli_query($conn,$updattop2);
        header("location: categorie.php?error=$msg");
 }

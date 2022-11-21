@@ -15,7 +15,11 @@ include 'config.php';
 <div class="nav mb-5">
       <?php include 'navbar.php';?>
 </div>
-
+<style>
+      .container{
+            max-width:1650px;
+      }
+</style>
 <div class="container">
 <div class="row ">
 <?php 
@@ -23,13 +27,16 @@ $sql = "SELECT * FROM categorie";
 $result = mysqli_query($conn,$sql);
 while($row = mysqli_fetch_assoc($result))
 {
-     echo" <div class='col-md-6 '>
-            <div class='card' >
-            <h5 class='card-title'>{$row['name']}</h5>
+     echo" <div class='col-md-3 '>
+            <div class='card my-3' >
+            <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}'>
             <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg' alt='Card image cap'>
+            </a>
                   <div class='card-body'>
+            
+                  <h5 class='card-title'>{$row['name']}</h5>
                   <p class='card-text'>{$row['Description']}</p>
-                  <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}' class ='btn btn-danger'>see the items</a>
+                  
                   </div>
             </div>
       </div>

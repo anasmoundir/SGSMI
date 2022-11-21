@@ -33,13 +33,17 @@ if($_SESSION['nom_utilisateur'] == NULL)
        <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav list-unstyled px-5">
         <li class="nav-item">
-        <a href="profil.php" style =" color: black;" class=" h4 px-5">Profil</a>
+          <style>
+            .name {color: white;text-decoration:none;}
+            .name :visited{ background-color: hotpink; color:black; };
+          </style>
+        <a href="profil.php"  class=" fw-bold name h4 px-5">Profil</a>
         </li>
         <li class="nav-item">
-        <a href="categorie.php" style =" color: black;" class="h4 px-5">Categorie</a>
+        <a href="categorie.php" class=" fw-bold name h4 px-5">Categorie</a>
         </li>
         <li class="nav-item">
-        <a href="statistics.php" style =" color: black;" class="h4 px-5">Dashboard</a>
+        <a href="statistics.php" class="fw-bold name h4 px-5">Dashboard</a>
         </li>
         </div>
 </div>
@@ -69,13 +73,13 @@ if($_SESSION['nom_utilisateur'] == NULL)
        <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-        <a href="profil.php" class="text-white display-7 h4 px-5">profil</a>
+        <a href="profil.php" class="text-white ">profil</a>
         </li>
         <li class="nav-item">
-        <a href="categorie.php" class="text-white display-7 h4 px-5">categorie</a>
+        <a href="categorie.php" class="text-white ">categorie</a>
         </li>
         <li class="nav-item">
-        <a href="statistics.php" class="text-white display-7 h4 px-5">dashboard</a>
+        <a href="statistics.php" class="text-white ">dashboard</a>
         </li>
         </div>
 </div>
