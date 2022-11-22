@@ -9,23 +9,20 @@
       <link  rel="stylesheet" type = "text/css"  href = "css/style.css">
       <title>sign up page</title>
 </head>
-<body class="d-flex   justify-content-center"  >
+<body class="d-flex "  >
 
-      <img width="100px" class=" vh-100 d-sm-none d-md-block  ;"  style="flex: 0 0 55%;" src="images/guitar-756326_1920.jpg" alt="guitar image">
-
-
-
-      <div class="col d-flex justify-content-center">
-      <div class = "card "  style="flex: 45%;">
-      <div class="card-body ">
+      <img width="100px" class="d-none d-lg-block d-xl-block rounded vh-100"  style="flex: 0 0 55%;" src="images/guitar-756326_1920.jpg" alt="guitar image">
+      <div class="col d-flex d-sm-inline-flex">
+      <div   style="flex: 45%;" class="container">
+      <div class="card-body  ">
       <div class="text-center">
       <img src="images/pngwing.png"  width ="90" alt="">
-      <h3>welcome to your store admin side</h3>
+      <h3 class= "py-2">welcome to your store admin side</h3>
       </div>
 
-       <div class = "card-text h-75 d-flex justify-content-center  align-items-center ">
+       <div class = "container card-text h-75 d-flex justify-content-center  align-items-center ">
 
-       <form style="height:500px" class = "form-control-lg shadow  p-5 " action = "page.php" method = "post">
+       <form style="height:500px" class = "form-control-lg shadow w-75 p-5  " action = "page.php" method = "post">
        <h4>create your account </h4>
       
       <?php if(isset($_GET['error'])) : ?>

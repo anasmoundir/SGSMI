@@ -12,7 +12,7 @@ include 'config.php';
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js" integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body >
-<div class="nav mb-5">
+<div class="nav">
       <?php include 'navbar.php';?>
 </div>
 <style>
@@ -21,7 +21,7 @@ include 'config.php';
       }
  
 </style>
-<div class="container">
+<div class="container pb-5">
 <div class="row ">
 <?php 
 
@@ -31,7 +31,7 @@ while($row = mysqli_fetch_assoc($result))
 {
       $path = $row['image'];
       
-     echo" <div class='col-md-3 '>
+     echo" <div class='col-md-3 shadow-lg'>
             <div class='card my-3' >
             
                   <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}'>
@@ -41,8 +41,9 @@ while($row = mysqli_fetch_assoc($result))
          
                   <div class='card-body'>
             
-                  <h5 class='card-title'>{$row['name']}</h5>
-                  <p class='card-text'>{$row['Description']}</p>
+                  <h5 class='p-2 card-title'>{$row['name']}</h5>
+
+                  <p class='text-truncate card-text'>{$row['Description']}</p>
                   
                   </div>
             </div>

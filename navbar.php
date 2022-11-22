@@ -16,8 +16,8 @@ if($_SESSION['nom_utilisateur'] == NULL)
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js" integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<div class="shadow w-100 mb-5">
-  <nav class="navbar navbar-expand-lg bg-primary">
+<div class="shadow w-100 mb-3">
+  <nav class="navbar navbar-expand-lg bg-primary ">
   <div class="container-fluid d-flex justify-content-between">
 
       <div>

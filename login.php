@@ -13,20 +13,20 @@
 </head>
 <body class="d-flex vh-100  justify-content-center"  >
 
-      <img width="100px" class="rounded vh-100 ;"  style="flex: 0 0 55%;" src="images/guitar-756326_1920.jpg" alt="guitar image">
+      <img width="100px" class="d-none d-lg-block d-xl-block rounded vh-100 ;"  style="flex: 0 0 55%;" src="images/guitar-756326_1920.jpg" alt="guitar image">
 
 
 
       <div class="col d-flex justify-content-center">
-      <div class = "card "  style="flex: 45%;">
+      <div class = " container "  style="flex: 45%;" >
       <div class="card-body ">
       <div class="text-center">
       <img src="images/pngwing.png"  width ="90" alt="">
       <h2>welcome to your store admin side</h2>
       </div>
-       <div class = "card-text h-75 d-flex justify-content-center  align-items-center ">
+       <div class = "container card-text h-75 d-flex justify-content-center  align-items-center ">
 
-       <form  class = "form-control-lg shadow  p-5 " action = "page2.php" method = "post">
+       <form  class = "form-control-lg shadow  w-75 p-5 " action = "page2.php" method = "post">
        <h3 style ="font-size:40px;">login</h3>
       
       <?php if(isset($_GET['error'])) : ?>
