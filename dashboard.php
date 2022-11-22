@@ -40,6 +40,7 @@ $categorie = $_GET['name'];
       <th scope="col">Action</th>
            </tr>
        </thead>
+       <tbody>
       <?php 
     
       $sql ="SELECT * FROM `instrument` WHERE id_categorie = $id";
@@ -47,7 +48,7 @@ $categorie = $_GET['name'];
       while($row = mysqli_fetch_assoc($result))
       {
         $var++;
-      echo" <tbody>
+      echo" 
              <tr>
              
              <th scope='row'>$var</th>
@@ -62,9 +63,10 @@ $categorie = $_GET['name'];
                </td>
             </tr>
           
-      </tbody>";
+      ";
       } 
  ?>
+ </tbody>
  </table>
  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   + ADD

@@ -34,8 +34,7 @@ if($_SESSION['nom_utilisateur'] == NULL)
       <ul class="navbar-nav list-unstyled px-5">
         <li class="nav-item">
           <style>
-            .name {color: white;text-decoration:none;}
-            .name :visited{ background-color: hotpink; color:black; };
+            .name {color: black;text-decoration:none;}
           </style>
         <a href="profil.php"  class=" fw-bold name h4 px-5">Profil</a>
         </li>

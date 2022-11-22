@@ -19,19 +19,26 @@ include 'config.php';
       .container{
             max-width:1650px;
       }
+ 
 </style>
 <div class="container">
 <div class="row ">
 <?php 
+
 $sql = "SELECT * FROM categorie";
 $result = mysqli_query($conn,$sql);
 while($row = mysqli_fetch_assoc($result))
 {
+      $path = $row['image'];
+      
      echo" <div class='col-md-3 '>
             <div class='card my-3' >
-            <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}'>
-            <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg' alt='Card image cap'>
-            </a>
+            
+                  <a href='dashboard.php?id={$row['id_categorie']}&name={$row['name']}'>
+                        <div style='background-image: url(./{$path}); background-repeat: no-repeat; background-size: cover; height: 600px; background-position:center;'>
+                        </div>
+                  </a>
+         
                   <div class='card-body'>
             
                   <h5 class='card-title'>{$row['name']}</h5>

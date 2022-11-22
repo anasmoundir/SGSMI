@@ -30,7 +30,7 @@
                    $_SESSION['nom_utilisateur'] = $variable;
 
                    $_SESSION['idadmin'] =  $variable2;
-                   header("location: categorie.php");
+                   header("location: statistics.php");
             }
                   else 
                   {
