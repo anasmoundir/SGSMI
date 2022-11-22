@@ -44,6 +44,7 @@
       <label for="exampleInputEmail1">full name</label>
       <input type="text" 
       class="form-control"  
+      onkeyup = "validate()" 
       name = "fullname"  
       id ="name"
       placeholder =" enter your full name  here "
@@ -52,7 +53,10 @@
 
       <div class="mb-3">
             <label for="exampleInputEmail1">gmail</label>
-            <input type="email" 
+            <input 
+            onkeyup = "validate()" 
+            type="email" 
+            id="idemail"
             class="form-control"   
             name = "email"  
             placeholder =" enter your gmail   here  "
@@ -61,17 +65,32 @@
 
       <div class="mb-3">
             <label for="exampleInputEmail1">password</label>
-            <input type="text" class="form-control" name = "password"   placeholder =" enter your password here " >
+            <input type="text" id= "pass" onkeyup = "validate()"  class="form-control" name = "password"   placeholder =" enter your password here " >
 
       </div>
-      <button type='submit'  onsubmit="validate(,,)"    class='btn btn-primary'>sign up</button>
+      <button type='submit' id="button"    class='btn btn-primary'>sign up</button>
       <a href="login.php" class = "link-secondary">login</a>
 
       </form>
       </div>
       </div>
 </div>
-      <script src ="validation.js"></script>
+      <script>
+      function validate() {
+      var regex = /^[^@]+@[^@]+\.[^@]+$/;
+      var regex2 = /^[A-Za-z][A-Za-z0-9_]{3,29}$/;
+
+
+  if (document.getElementById("idemail").value.match(regex) && document.getElementById("pass").value.match(regex2) && document.getElementById("name").value.match(regex2))
+   {
+    document.getElementById("button").disabled = false;
+      console.log("yes");
+  } else {
+    document.getElementById("button").disabled = true;
+    console.log("no");
+  }
+      }
+      </script>
       </body>
       
       </html>   

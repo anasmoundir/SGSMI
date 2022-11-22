@@ -38,7 +38,6 @@ while($row = mysqli_fetch_assoc($result))
                         <div style='background-image: url(./{$path}); background-repeat: no-repeat; background-size: cover; height: 600px; background-position:center;'>
                         </div>
                   </a>
-         
                   <div class='card-body'>
             
                   <h5 class='p-2 card-title'>{$row['name']}</h5>
